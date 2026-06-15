@@ -1,0 +1,11 @@
+server/node_modules/
+
+tiktok_game/Library/
+tiktok_game/Logs/
+tiktok_game/Packages/
+tiktok_game/ProjectSettings/
+tiktok_game/UserSettings/
+
+tiktok_game/Assets/**/*
+!tiktok_game/Assets/Src/
+!tiktok_game/Assets/Src/**/*
