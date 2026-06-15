@@ -3,11 +3,13 @@ using NativeWebSocket;
 
 public class Connection : MonoBehaviour
 {
+    private Handler handlerScript;
     private WebSocket ws;
 
-    async void Start()
+    async private void Start()
     {
         //Application.runInBackground = true; // Recommended for WebGL
+        handlerScript = GetComponent<Handler>();
 
         ws = new WebSocket("ws://127.0.0.1:8080");
 
@@ -18,14 +20,18 @@ public class Connection : MonoBehaviour
         ws.OnMessage += (bytes) =>
         {
             var message = System.Text.Encoding.UTF8.GetString(bytes);
-            Debug.Log("Received: " + message);
+            //Debug.Log("Received: " + message);
+
+            handlerScript.HandleMessage(message);
         };
 
         await ws.Connect();
+
     }
 
-    void Update()
+    private void Update()
     {
         ws.DispatchMessageQueue();
     }
+
 }

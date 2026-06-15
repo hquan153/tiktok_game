@@ -18,5 +18,5 @@ tiktokConnection.on(WebcastEvent.GIFT, (data) => {
     repeatCount: data.repeatCount,
   };
 
-  sendToUnity("GIFT", giftInfo);
+  sendToUnity({ id: data.giftId, count: data.repeatCount });
 });
