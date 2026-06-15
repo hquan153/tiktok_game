@@ -1,6 +1,7 @@
 server/node_modules/
 
 tiktok_game/
+tiktok_game/Models/
 tiktok_game/Library/
 tiktok_game/Logs/
 tiktok_game/Packages/
@@ -8,5 +9,11 @@ tiktok_game/ProjectSettings/
 tiktok_game/UserSettings/
 
 tiktok_game/Assets/**/*
-!tiktok_game/Assets/Src/
-!tiktok_game/Assets/Src/**/*
+tiktok_game/Assets/Src/*.meta
+tiktok_game/Assets/**/*.meta
+tiktok_game/Assets/**/*.unity
+tiktok_game/Assets/**/*.prefab
+tiktok_game/Assets/**/*.asset
+tiktok_game/Assets/**/*.mat
+
+!tiktok_game/Assets/Src/*.cs
