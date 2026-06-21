@@ -1,7 +1,7 @@
 const constants = {
   port: 3000,
   wsPort: 8080,
-  tiktokUsername: "@tunstreamer",
+  tiktokUsername: "@haitrumcuois",
 };
 
 module.exports = constants;

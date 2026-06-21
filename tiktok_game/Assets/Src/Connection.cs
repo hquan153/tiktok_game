@@ -1,5 +1,5 @@
-using UnityEngine;
 using NativeWebSocket;
+using UnityEngine;
 
 public class Connection : MonoBehaviour
 {
@@ -32,5 +32,9 @@ public class Connection : MonoBehaviour
     private void Update()
     {
         ws.DispatchMessageQueue();
+    }
+    private async void OnApplicationQuit()
+    {
+        await ws.Close();
     }
 }

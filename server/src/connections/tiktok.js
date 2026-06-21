@@ -11,14 +11,14 @@ if (process.stdin.isRawMode) {
   process.stdin.setRawMode(true);
 }
 
-/* tiktokConnection
+tiktokConnection
   .connect()
   .then((state) => {
     console.info(`Connected to roomId ${state.roomId}`);
   })
   .catch((err) => {
     console.error("Failed to connect", err);
-  }); */
+  });
 
 process.stdin.on("keypress", (str, key) => {
   if (key.name === "r") {
