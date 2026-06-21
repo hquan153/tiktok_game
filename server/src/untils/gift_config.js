@@ -1,5 +1,5 @@
 class Gift {
-  constructor(order, id, giftName, attacker, target, damage, from, to, diamondCount, isRandom = false) {
+  constructor(order, id, giftName, attacker, target, damage, from, to, diamondCount) {
     this.order = order;
     this.id = id;
     this.name = giftName;
@@ -9,7 +9,6 @@ class Gift {
     this.from = from;
     this.to = to;
     this.diamondCount = diamondCount;
-    this.isRandom = isRandom;
   }
 }
 
@@ -33,7 +32,7 @@ const giftConfig = [
   new Gift(14, 8243, "Gift 14", "Messi", "Ronaldo", 0, 0.15, 0.2, 9),
 
   // random
-  new Gift(15, 9139, "Gift 15", "Random", "Random", 0, 0.01, 0.08, 2, true),
+  new Gift(15, 9139, "Gift 15", "Random", "Random", 0, 0.01, 0.08, 2),
 ];
 
 module.exports = giftConfig;

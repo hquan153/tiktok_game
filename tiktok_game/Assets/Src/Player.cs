@@ -1,6 +1,6 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject enemyScoreGameObject;
     private TMP_Text enemyScoreComponent;
+
+    private readonly float attackTime = .15f;
 
     private void Start()
     {
@@ -34,18 +36,9 @@ public class Player : MonoBehaviour
 
     private void ChangeColorHpBar()
     {
-        if (hpBar.value >= .7)
-        {
-            hpBarFill.color = Color.green;
-        }
-        else if (hpBar.value < .7 && hpBar.value >= .3)
-        {
-            hpBarFill.color = Color.yellow;
-        }
-        else
-        {
-            hpBarFill.color = Color.red;
-        }
+        if (hpBar.value >= .7) hpBarFill.color = Color.green;
+        else if (hpBar.value < .7 && hpBar.value >= .3) hpBarFill.color = Color.yellow;
+        else hpBarFill.color = Color.red;
     }
 
     private void Dead()
@@ -70,7 +63,7 @@ public class Player : MonoBehaviour
         //restDamagedObject.SetActive(false);
         attackObject.SetActive(true);
 
-        Invoke("Rest", .1f);
+        Invoke("Rest", attackTime);
     }
 
     public void Damaged(float damage)
@@ -83,6 +76,6 @@ public class Player : MonoBehaviour
         Dead();
         ChangeColorHpBar();
 
-        Invoke("Rest", .1f);
+        Invoke("Rest", attackTime);
     }
 }

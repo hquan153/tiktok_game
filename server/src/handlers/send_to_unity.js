@@ -1,7 +1,7 @@
 const app = require("../index");
 
 const sendToUnity = (giftInfo) => {
-  console.log(giftInfo);
+  // console.log(giftInfo);
   const unityClient = app?.locals?.unityClient;
 
   if (!unityClient || unityClient.readyState !== WebSocket.OPEN) return;

@@ -11,24 +11,31 @@ if (process.stdin.isRawMode) {
   process.stdin.setRawMode(true);
 }
 
-console.log("r: rose, q: quit");
-
-tiktokConnection
+/* tiktokConnection
   .connect()
   .then((state) => {
     console.info(`Connected to roomId ${state.roomId}`);
   })
   .catch((err) => {
     console.error("Failed to connect", err);
-  });
+  }); */
 
-/* process.stdin.on("keypress", (str, key) => {
-  console.log(key.name);
+process.stdin.on("keypress", (str, key) => {
   if (key.name === "r") {
-    tiktokConnection.emit({ id: 5655, count: 1, diamondCount: 1 });
+    tiktokConnection.emit("gift", {
+      order: 15,
+      giftId: 9139,
+      name: "Gift 15",
+      attacker: "Random",
+      target: "Random",
+      damage: 0,
+      from: 0.01,
+      to: 0.08,
+      diamondCount: 2,
+    });
   } else if (key.name === "q") {
     process.exit();
   }
-}); */
+});
 
 module.exports = tiktokConnection;

@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
@@ -35,12 +36,12 @@ public class Handler : MonoBehaviour
 
     private void PlayerAttack(Json_Form message)
     {
-        if (message.attacker == "Ronaldo" && message.isRandom == false)
+        if (message.attacker == "Ronaldo")
         {
             ronaldoScript.Attack();
             messiScript.Damaged(message.damage != 0 ? message.damage : Random.Range(message.from, message.to));
         }
-        else if (message.attacker == "Messi" && message.isRandom == false)
+        else if (message.attacker == "Messi")
         {
             messiScript.Attack();
             ronaldoScript.Damaged(message.damage != 0 ? message.damage : Random.Range(message.from, message.to));
@@ -49,7 +50,7 @@ public class Handler : MonoBehaviour
         {
             float randomNumber = Random.Range(-1f, 1f);
             message.attacker = randomNumber <= 0 ? "Ronaldo" : "Messi";
-            message.target  = randomNumber <= 0 ? "Messi" : "Ronaldo";
+            message.target = randomNumber <= 0 ? "Messi" : "Ronaldo";
             PlayerAttack(message);
         }
         soundComponent.PlayBonk();
@@ -58,6 +59,7 @@ public class Handler : MonoBehaviour
     public void HandleMessage(string messageJSON)
     {
         Json_Form message = JsonUtility.FromJson<Json_Form>(messageJSON);
-        PlayerAttack(message);
+        if (message.message == null) PlayerAttack(message);
+        else Debug.Log(message.message);
     }
 }

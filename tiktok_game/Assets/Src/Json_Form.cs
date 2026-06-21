@@ -12,4 +12,6 @@ public class Json_Form
     public int diamondCount;
     public bool isRandom;
     public int count;
+
+    public string message;
 }

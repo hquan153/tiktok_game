@@ -11,10 +11,11 @@ const giftConfig = require("../untils/gift_config");
 const allId = giftConfig.map((gift) => gift.id);
 
 tiktokConnection.on(WebcastEvent.GIFT, (data) => {
-  console.log(`${data.giftId}, ${data.giftDetails.giftName} x${data.repeatCount}`);
+  // console.log(`${data.giftId}, ${data.giftDetails.giftName} x${data.repeatCount}`);
   /* console.log(
     `${data.user.uniqueId} sends ${data.giftId}, ${data.giftDetails.giftName} x${data.repeatCount}`,
   ); */
+  // console.log(data);
 
   /* const giftInfo = {
     // userId: data.user.uniqueId,
