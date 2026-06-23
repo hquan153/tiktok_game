@@ -12,6 +12,6 @@ public class Sound : MonoBehaviour
 
     public void PlayBonk()
     {
-        //audioSource.PlayOneShot(bonk);
+        audioSource.PlayOneShot(bonk);
     }
 }

@@ -64,7 +64,5 @@ public class Attack_Manager : MonoBehaviour
         {
             attackQueue.Enqueue(message);
         }
-
-        //Debug.Log($"[Queue] Đã thêm {message.count} lượt đấm cho {message.attacker}. Tổng số lệnh chờ: {attackQueue.Count}");
     }
 }

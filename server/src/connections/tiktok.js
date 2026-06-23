@@ -32,6 +32,7 @@ process.stdin.on("keypress", (str, key) => {
       from: 0.01,
       to: 0.08,
       diamondCount: 2,
+      test: true,
     });
   } else if (key.name === "s") {
     tiktokConnection.emit("gift", {
@@ -44,8 +45,9 @@ process.stdin.on("keypress", (str, key) => {
       from: 0,
       to: 0,
       diamondCount: 1,
+      test: true,
     });
-  } else if (key.name === "s") {
+  } else if (key.name === "d") {
     tiktokConnection.emit("gift", {
       order: 8,
       giftId: 5760,
@@ -56,6 +58,7 @@ process.stdin.on("keypress", (str, key) => {
       from: 0,
       to: 0,
       diamondCount: 1,
+      test: true,
     });
   }
 });
