@@ -14,10 +14,10 @@ public class Player : MonoBehaviour
     private TMP_Text currentHpTMP;
 
     [SerializeField] private GameObject enemyScoreGameObject;
-    private TMP_Text enemyScoreComponent;
+    private TMP_Text enemyScoreTMPComponent;
 
     [SerializeField] private float attackTime = .2f;
-    public float restTime = .35f;
+    public float restTime = .3f;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         hpBarFill = hpBarOject.transform.Find("Fill").GetComponent<Image>();
         currentHpTMP = hpBarOject.GetComponentInChildren<TMP_Text>();
 
-        enemyScoreComponent = enemyScoreGameObject.GetComponent<TMP_Text>();
+        enemyScoreTMPComponent = enemyScoreGameObject.GetComponent<TMP_Text>();
 
         restObject.SetActive(true);
         restDamagedObject.SetActive(false);
@@ -53,8 +53,9 @@ public class Player : MonoBehaviour
     {
         if (hpBar.value <= 0)
         {
-            enemyScoreComponent.text = (int.Parse(enemyScoreComponent.text) + 1).ToString();
+            enemyScoreTMPComponent.text = (int.Parse(enemyScoreTMPComponent.text) + 1).ToString();
             hpBar.value = 1;
+            currentHpTMP.text = (hpBar.value * 100).ToString();
         }
     }
 
@@ -81,7 +82,8 @@ public class Player : MonoBehaviour
         //attackObject.SetActive(false);
 
         hpBar.value -= damage;
-        currentHpTMP.text = (hpBar.value * 100).ToString();
+        currentHpTMP.text = Mathf.CeilToInt((hpBar.value * 100)).ToString();
+
         Dead();
         ChangeColorHpBar();
 

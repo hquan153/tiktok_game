@@ -2,7 +2,6 @@
 public class Json_Form
 {
     public int order;
-    public int id;
     public string giftName;
     public string attacker;
     public string target;

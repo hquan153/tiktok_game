@@ -4,7 +4,7 @@ public class Message_Handler : MonoBehaviour
 {
     private Attack_Manager attackManagerScript;
 
-    private void Start()
+    private void Awake()
     {
         attackManagerScript = GetComponent<Attack_Manager>();
     }
@@ -15,7 +15,7 @@ public class Message_Handler : MonoBehaviour
         if (message.message == null)
         {
             attackManagerScript.AddAttackQueue(message);
-            Debug.Log(message.id + " x" + message.count + ", attacker: " + message.attacker + " ");
+            Debug.Log(message.giftName + " x" + message.count + ", attacker: " + message.attacker + " ");
         }
         else Debug.Log(message.message);
     }

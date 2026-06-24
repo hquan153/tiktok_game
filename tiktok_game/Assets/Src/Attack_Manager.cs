@@ -10,13 +10,13 @@ public class Attack_Manager : MonoBehaviour
     private Player ronaldoScript;
     private Player messiScript;
 
-    private Sound soundComponent;
+    private Sound soundScript;
 
     private readonly Queue<Json_Form> attackQueue = new Queue<Json_Form>();
 
     private bool isAttacking = false;
 
-    private void Start()
+    private void Awake()
     {
         ronaldoObject = GameObject.Find("Players/Ronaldo");
         messiObject = GameObject.Find("Players/Messi");
@@ -24,16 +24,21 @@ public class Attack_Manager : MonoBehaviour
         ronaldoScript = ronaldoObject.GetComponent<Player>();
         messiScript = messiObject.GetComponent<Player>();
 
-        soundComponent = GameObject.FindGameObjectWithTag("Sound").GetComponent<Sound>();
+        soundScript = GameObject.FindGameObjectWithTag("Sound").GetComponent<Sound>();
     }
 
     private void Update()
     {
         if (attackQueue.Count > 0 && !isAttacking)
         {
+            soundScript.PlayBonk();
+            
             Json_Form nextAttacker = attackQueue.Dequeue();
-
             StartCoroutine(ExecuteAttackRoutine(nextAttacker));
+        }
+        else
+        {
+            //soundScript.StopBonk();
         }
     }
 
@@ -44,14 +49,13 @@ public class Attack_Manager : MonoBehaviour
         if (message.attacker == "Ronaldo")
         {
             ronaldoScript.Attack();
-            messiScript.Damaged(message.damage != 0 ? message.damage : Random.Range(message.from, message.to));
+            messiScript.Damaged(message.damage);
         }
         else if (message.attacker == "Messi")
         {
             messiScript.Attack();
-            ronaldoScript.Damaged(message.damage != 0 ? message.damage : Random.Range(message.from, message.to));
+            ronaldoScript.Damaged(message.damage);
         }
-        soundComponent.PlayBonk();
 
         yield return new WaitForSeconds(ronaldoScript.restTime);
 

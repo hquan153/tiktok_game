@@ -7,7 +7,9 @@ const sendToUnity = async (giftInfo) => {
   if (!unityClient || unityClient.readyState !== WebSocket.OPEN) return;
   await unityClient.send(JSON.stringify({ ...giftInfo }));
 
-  console.log(`[Sent to Unity]: ${giftInfo.id} x${giftInfo.count}, ${giftInfo.diamondCount} diamonds`);
+  console.log(
+    `[Sent to Unity]: ${giftInfo.giftName} x${giftInfo.count}, ${giftInfo.diamondCount} diamonds`,
+  );
 };
 
 module.exports = sendToUnity;

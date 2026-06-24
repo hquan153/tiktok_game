@@ -1,10 +1,11 @@
 class Gift {
   constructor(order, giftName, attacker, target, damage, diamondCount) {
     this.order = order;
-    this.name = giftName;
+    this.giftName = giftName;
     this.attacker = attacker;
     this.target = target;
     this.damage = damage;
+    this.winTimes = Math.floor(damage);
     this.diamondCount = diamondCount;
   }
 }
