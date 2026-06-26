@@ -12,11 +12,11 @@ public class SoundEffect : MonoBehaviour
 
     public void PlayBonk()
     {
-        audioSource.enabled = true;
+        //audioSource.enabled = true;
     }
 
     public void StopBonk()
     {
-        audioSource.enabled = false;
+        //audioSource.enabled = false;
     }
 }

@@ -7,7 +7,7 @@ public class Fan : MonoBehaviour
     private Image imageComponent;
 
     [SerializeField] private bool isDelay = false;
-    private readonly float cheerTime = .35f;
+    private readonly float cheerTime = .4f;
 
     private void Awake()
     {

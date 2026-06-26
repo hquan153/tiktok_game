@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     private Image hpBarFill;
     private TMP_Text currentHpTMP;
 
-    [SerializeField] private GameObject enemyScoreGameObject;
+    [SerializeField] private GameObject enemyScoreObject;
     private TMP_Text enemyScoreTMPComponent;
+
+    private GameObject damagedPopupObject;
 
     [SerializeField] private float attackTime = .2f;
     public float restTime = .3f;
@@ -26,20 +28,25 @@ public class Player : MonoBehaviour
         attackObject = transform.Find("Attack").gameObject;
 
         hpBar = hpBarOject.GetComponent<Slider>();
-        hpBar.value = 1;
         hpBarFill = hpBarOject.transform.Find("Fill").GetComponent<Image>();
         currentHpTMP = hpBarOject.GetComponentInChildren<TMP_Text>();
 
-        enemyScoreTMPComponent = enemyScoreGameObject.GetComponent<TMP_Text>();
+        enemyScoreTMPComponent = enemyScoreObject.GetComponent<TMP_Text>();
 
-        restObject.SetActive(true);
-        restDamagedObject.SetActive(false);
-        attackObject.SetActive(false);
+        damagedPopupObject = GameObject.Find($"{transform.name} Damaged");
     }
 
     private void Start()
     {
+        hpBar.value = 1;
+
         currentHpTMP.text = (hpBar.value * 100).ToString();
+
+        damagedPopupObject.SetActive(false);
+
+        restObject.SetActive(true);
+        restDamagedObject.SetActive(false);
+        attackObject.SetActive(false);
     }
 
     private void ChangeColorHpBar()
@@ -47,6 +54,11 @@ public class Player : MonoBehaviour
         if (hpBar.value >= .7) hpBarFill.color = Color.green;
         else if (hpBar.value < .7 && hpBar.value >= .3) hpBarFill.color = Color.yellow;
         else hpBarFill.color = Color.red;
+    }
+
+    private void ShowDamagedPopup()
+    {
+        damagedPopupObject.SetActive(true);
     }
 
     private void Dead()
@@ -84,6 +96,7 @@ public class Player : MonoBehaviour
         hpBar.value -= damage;
         currentHpTMP.text = Mathf.CeilToInt((hpBar.value * 100)).ToString();
 
+        ShowDamagedPopup();
         Dead();
         ChangeColorHpBar();
 
