@@ -16,7 +16,7 @@ public class Connection : MonoBehaviour
 
     async private void Start()
     {
-        handlerScript = GetComponent<Message_Handler>();
+        handlerScript = transform.GetComponent<Message_Handler>();
 
         settingObject = GameObject.FindGameObjectWithTag("Setting");
 

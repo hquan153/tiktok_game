@@ -6,7 +6,7 @@ public class Message_Handler : MonoBehaviour
 
     private void Awake()
     {
-        attackManagerScript = GetComponent<Attack_Manager>();
+        attackManagerScript = transform.GetComponent<Attack_Manager>();
     }
 
     public void HandleMessage(string messageJSON)
