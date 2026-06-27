@@ -9,19 +9,22 @@ public class Connection : MonoBehaviour
 
     private WebSocket ws;
 
+    private readonly string serverDomain = "wss://tiktok-game-rabq.onrender.com";
+
     private void Awake()
     {
         Application.runInBackground = true;
-    }
 
-    async private void Start()
-    {
         handlerScript = transform.GetComponent<Message_Handler>();
 
         settingObject = GameObject.FindGameObjectWithTag("Setting");
 
-        ws = new WebSocket("ws://127.0.0.1:8080");
+        //ws = new WebSocket("ws://127.0.0.1:8080");
+        ws = new WebSocket(serverDomain);
+    }
 
+    async private void Start()
+    {
         ws.OnOpen += () =>
         {
             Debug.Log("Connection open!");
