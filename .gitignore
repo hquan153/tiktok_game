@@ -1,19 +1,16 @@
 server/node_modules/
+server/.env
+*.log
 
-tiktok_game/
-tiktok_game/Models/
 tiktok_game/Library/
+tiktok_game/Temp/
+tiktok_game/Obj/
 tiktok_game/Logs/
-tiktok_game/Packages/
-tiktok_game/ProjectSettings/
 tiktok_game/UserSettings/
+tiktok_game/ProfilerCaptures/
+tiktok_game/.vs/
 
-tiktok_game/Assets/**/*
-tiktok_game/Assets/Src/*.meta
-tiktok_game/Assets/**/*.meta
-tiktok_game/Assets/**/*.unity
-tiktok_game/Assets/**/*.prefab
-tiktok_game/Assets/**/*.asset
-tiktok_game/Assets/**/*.mat
-
-!tiktok_game/Assets/Src/*.cs
+*.csproj
+*.sln
+*.slnx
+*.vsconfig
