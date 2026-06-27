@@ -1128,6 +1128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5867040290781841338}
   - component: {fileID: 8719784454455348372}
+  - component: {fileID: 8719784454455348373}
   m_Layer: 0
   m_Name: Background Music
   m_TagString: Untagged
@@ -2518,7 +2519,7 @@ Transform:
   m_GameObject: {fileID: 7050645359794667922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.5, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4080,7 +4081,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a1fa0982212b5bc4ab8572ff9e4e3f27, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.125
+  m_Volume: 0.06
   m_Pitch: 0.9
   Loop: 1
   Mute: 0
@@ -4164,6 +4165,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8719784454455348373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813332820814971311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d791d04a3c64c4392cfaae25fdb5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound
 --- !u!224 &8755754382914571331
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 [System.Serializable]
-public class Json_Form
+public class JsonForm
 {
     public int order;
     public string giftName;

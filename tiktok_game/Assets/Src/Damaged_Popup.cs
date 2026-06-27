@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Damaged_Popup : MonoBehaviour
+public class DamagedPopup : MonoBehaviour
 {
     private Animator animator;
     private string animationClipName;

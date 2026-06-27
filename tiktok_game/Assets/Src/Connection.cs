@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Connection : MonoBehaviour
 {
-    private Message_Handler handlerScript;
+    private MessageHandler handlerScript;
 
     private GameObject settingObject;
 
@@ -15,12 +15,12 @@ public class Connection : MonoBehaviour
     {
         Application.runInBackground = true;
 
-        handlerScript = transform.GetComponent<Message_Handler>();
+        handlerScript = transform.GetComponent<MessageHandler>();
 
         settingObject = GameObject.FindGameObjectWithTag("Setting");
 
-        //ws = new WebSocket("ws://127.0.0.1:8080");
-        ws = new WebSocket(serverDomain);
+        ws = new WebSocket("ws://127.0.0.1:8080");
+        //ws = new WebSocket(serverDomain);
     }
 
     async private void Start()

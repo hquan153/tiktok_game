@@ -2,7 +2,7 @@
 - Project name: tiktok_game
 - Unity version: Unity 6000.5.1f1
 - Active game object:
-  - Name: Game Manager
-  - Tag: Manager
+  - Name: Background Music
+  - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

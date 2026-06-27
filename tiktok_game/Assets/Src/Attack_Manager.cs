@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Attack_Manager : MonoBehaviour
+public class AttackManager : MonoBehaviour
 {
     private GameObject ronaldoObject;
     private GameObject messiObject;
@@ -10,9 +10,9 @@ public class Attack_Manager : MonoBehaviour
     private Player ronaldoScript;
     private Player messiScript;
 
-    private Sound_Effect soundEffectScript;
+    private SoundEffect soundEffectScript;
 
-    private readonly Queue<Json_Form> attackQueue = new();
+    private readonly Queue<JsonForm> attackQueue = new();
 
     private bool isAttacking = false;
 
@@ -24,19 +24,19 @@ public class Attack_Manager : MonoBehaviour
         ronaldoScript = ronaldoObject.GetComponent<Player>();
         messiScript = messiObject.GetComponent<Player>();
 
-        soundEffectScript = GameObject.FindGameObjectWithTag("Sound Effect").GetComponent<Sound_Effect>();
+        soundEffectScript = GameObject.FindGameObjectWithTag("Sound Effect").GetComponent<SoundEffect>();
     }
 
     private void Update()
     {
         if (attackQueue.Count > 0 && !isAttacking)
         {
-            Json_Form nextAttacker = attackQueue.Dequeue();
+            JsonForm nextAttacker = attackQueue.Dequeue();
             StartCoroutine(ExecuteAttackRoutine(nextAttacker));
         }
     }
 
-    private IEnumerator ExecuteAttackRoutine(Json_Form message)
+    private IEnumerator ExecuteAttackRoutine(JsonForm message)
     {
         isAttacking = true;
         soundEffectScript.StopBonk();
@@ -59,7 +59,7 @@ public class Attack_Manager : MonoBehaviour
         soundEffectScript.StopBonk();
     }
 
-    public void AddAttackQueue(Json_Form message)
+    public void AddAttackQueue(JsonForm message)
     {
         for (int i = 0; i < message.count; i++)
         {

@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class Message_Handler : MonoBehaviour
+public class MessageHandler : MonoBehaviour
 {
-    private Attack_Manager attackManagerScript;
+    private AttackManager attackManagerScript;
 
     private void Awake()
     {
-        attackManagerScript = transform.GetComponent<Attack_Manager>();
+        attackManagerScript = transform.GetComponent<AttackManager>();
     }
 
     public void HandleMessage(string messageJSON)
     {
-        Json_Form message = JsonUtility.FromJson<Json_Form>(messageJSON);
+        JsonForm message = JsonUtility.FromJson<JsonForm>(messageJSON);
         if (message.message == null)
         {
             attackManagerScript.AddAttackQueue(message);
